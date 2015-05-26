@@ -7,8 +7,8 @@
     <ProjectGuid>{4308593D-2B19-47D7-8D65-842CEB1943AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>toda_api.test</RootNamespace>
-    <AssemblyName>toda-api.test</AssemblyName>
+    <RootNamespace>toda.api.test</RootNamespace>
+    <AssemblyName>toda.api.test</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

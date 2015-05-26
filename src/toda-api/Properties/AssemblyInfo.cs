@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("toda_api")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("toda.api")]
+[assembly: AssemblyDescription("Thailan Open Data API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("toda_api")]
+[assembly: AssemblyProduct("toda.api")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

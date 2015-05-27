@@ -2,6 +2,7 @@
 using Autofac.Integration.WebApi;
 using System.Reflection;
 using System.Web.Http;
+using toda.api.Services.GeoLocation;
 
 namespace toda.api
 {
@@ -27,12 +28,7 @@ namespace toda.api
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             // Register other dependencies.
-            //builder.Register(c => new BenefitService()).As<IBenefitService>().InstancePerRequest();
-            //builder.Register(c => new RatePlanService()).As<IRatePlanService>().InstancePerRequest();
-            //builder.Register(c => new SurchargeTypeService()).As<ISurchargeTypeService>().InstancePerRequest();
-            //builder.Register(c => new HotelService()).As<IHotelService>().InstancePerRequest();
-            //builder.Register(c => new LinkGenerator()).As<ILinkGenerator>().InstancePerRequest();
-            //builder.Register(c => new CacheService()).As<ICacheService>().InstancePerRequest();
+            builder.Register(c => new GeoLocationService()).As<IGeoLocationService>().InstancePerRequest();
 
             // Build the container.
             var container = builder.Build();

@@ -9,7 +9,7 @@ namespace toda.api.Services.GeoLocation
 {
     public interface IGeoLocationService
     {
-        City GetCity(string id);
+        City GetCity(string iso);
         City[] GetCities();
     }
 }

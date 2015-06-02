@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using toda.api.Models;
 
@@ -8,7 +11,7 @@ namespace toda.api.Services.GeoLocation
 {
     public class GeoLocationService : IGeoLocationService
     {
-        public City GetCity(string id)
+        public City GetCity(string iso)
         {
             var item = default(City);
             var list = GetCities();
@@ -16,7 +19,7 @@ namespace toda.api.Services.GeoLocation
             {
                 for (int i = 0; i < list.Length; i++)
                 {
-                    if (list[i].ISO.Equals(id))
+                    if (list[i].ISO.Equals(iso))
                     {
                         item = list[i];
                     }
@@ -27,25 +30,24 @@ namespace toda.api.Services.GeoLocation
 
         public City[] GetCities()
         {
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "toda.api.Data.city.json";
+            var jsonContent = string.Empty;
             var list = new List<City>();
-            list.Add(new City()
+
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
             {
-                Code = "BKK",
-                ISO = "TH-10",
-                Name = "กรุงเทพมหานคร"
-            });
-            //list.Add(new City()
-            //{
-            //    Code = "",
-            //    ISO = "",
-            //    Name = ""
-            //});
-            //list.Add(new City()
-            //{
-            //    Code = "",
-            //    ISO = "",
-            //    Name = ""
-            //});
+                using (var reader = new StreamReader(stream))
+                {
+                    jsonContent = reader.ReadToEnd();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(jsonContent))
+            {
+                list = JsonConvert.DeserializeObject<List<City>>(jsonContent);
+            }
+
             return list.Count > 0 ? list.ToArray() : null;
         }
     }

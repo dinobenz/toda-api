@@ -74,7 +74,7 @@ namespace toda.api.test.Controllers
             controller.Request = new HttpRequestMessage();
             controller.Request.SetConfiguration(new HttpConfiguration());
 
-            var result = controller.GetCities(null);
+            var result = controller.GetCities();
             Assert.IsNotNull(result);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
 
@@ -95,7 +95,7 @@ namespace toda.api.test.Controllers
             controller.Request = new HttpRequestMessage();
             controller.Request.SetConfiguration(new HttpConfiguration());
 
-            var result = controller.GetCities(null);
+            var result = controller.GetCities();
             Assert.IsNotNull(result);
             Assert.AreEqual(HttpStatusCode.NoContent, result.StatusCode);
             Assert.IsNull(result.Content);

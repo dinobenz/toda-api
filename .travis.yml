@@ -1,0 +1,11 @@
+## Travis CI Integration
+language: csharp
+solution: src/toda-api.sln
+
+install:
+  - sudo apt-get install nunit-console
+  - nuget restore src/toda-api.sln
+
+script:
+  - xbuild src/toda-api.sln
+  - nunit-console src/toda-api.test/bin/Debug/toda.api.test.dll

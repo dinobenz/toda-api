@@ -5,11 +5,10 @@ using System.Web;
 
 namespace toda.api.Models
 {
-    public class City
+    public class SubDistrict
     {
-        public string Code { get; set; }
-        public string ISO { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
-        public District[] Districts { get; set; }
+        public string ZipCode { get; set; }
     }
 }
